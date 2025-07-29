@@ -1,10 +1,18 @@
 'use client';
 
-import { Mea_Culpa } from 'next/font/google';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Mea_Culpa } from 'next/font/google'; // Import these fonts from Google fonts
+import { Bodoni_Moda } from 'next/font/google';
 
+// Mea Culpa cursive font
 const meaCulpa = Mea_Culpa({
+  subsets: ['latin'],
+  weight: '400',
+});
+
+// Bodoni Moda serif font
+const bodoniModa = Bodoni_Moda({
   subsets: ['latin'],
   weight: '400',
 });
@@ -33,7 +41,7 @@ export default function Header() {
                   router.push('/shop/item1');
                   setIsOpen(false);
                 }}
-                className="block w-full text-left px-4 py-2 hover:bg-pink-100"
+                className={`block w-full text-left px-4 py-2 hover:bg-pink-100 ${bodoniModa.className}`}
               >
                 Ready 2 Wear
               </button>
