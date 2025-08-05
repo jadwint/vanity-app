@@ -32,6 +32,9 @@ export default {
       },
     },
   },
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   plugins: [
     typography,
     containerQueries,
