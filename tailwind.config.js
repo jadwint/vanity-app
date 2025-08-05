@@ -1,5 +1,6 @@
 import typography from "@tailwindcss/typography";
 import containerQueries from "@tailwindcss/container-queries";
+import { match } from "assert";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -10,5 +11,22 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [typography, containerQueries],
+  plugins: [
+    typography,
+    containerQueries,
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          "animation-delay": (value) => {
+            return {
+              "animation-delay": value,
+            };
+          },
+        },
+        {
+          values: theme("transitionDelay"),
+        }
+      );
+    }),
+  ],
 };
